@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        // Passport::routes();
-        Passport::tokensCan([
-            'do-anything' => 'Perform any actions'
-        ]);
+        Passport::routes();
+        // Passport::tokensCan([
+        //     'do-anything' => 'Perform any actions'
+        // ]);
     }
 }

@@ -27,8 +27,7 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => 'auth:api',
-    'middleware' => 'check-role'
+    'middleware' => 'auth:api'
 ], function() {
      Route::get('rentalCars', [CarController::class, 'get']);
      Route::post('rentalCars', [CarController::class, 'create']);
