@@ -12,4 +12,5 @@ php artisan serve( navigate:localhost:8000)
 
 
 ### use Postman to hit api
-API collection is attached in the task
+API collection 
+https://www.getpostman.com/collections/8a0931da9a2941031f94
