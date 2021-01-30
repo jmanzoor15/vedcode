@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\User;
 use Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Response;
+
 class AuthController extends Controller
 {
     /**
@@ -19,11 +22,19 @@ class AuthController extends Controller
      */
     public function signup(Request $request)
     {
-        $this->validate($request, [
+        // $this->validate($request, [
+        //     'name' => 'required|min:3',
+        //     'email' => 'required|email|unique:users',
+        //     'password' => 'required|min:6',
+        // ]);
+        $validator = Validator::make($request->all(), [
             'name' => 'required|min:3',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
+        if ($validator->fails()) {    
+            return response()->json($validator->messages(), Response::HTTP_BAD_REQUEST);
+        }
  
         $user = User::create([
             'name' => $request->name,
@@ -49,6 +60,13 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+        if ($validator->fails()) {    
+            return response()->json($validator->messages(), Response::HTTP_BAD_REQUEST);
+        }
         $credentials = [
             'email' => $request->email,
             'password' => $request->password
