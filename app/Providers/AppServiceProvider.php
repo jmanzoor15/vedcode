@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        //$this->registerPolicies();
         Passport::routes();
         // Passport::tokensCan([
         //     'do-anything' => 'Perform any actions'
