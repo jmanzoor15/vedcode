@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DepartmentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/departments', function () {
+    return view('add');
+});
+Route::post('/adddepartment', [DepartmentController::class, 'create']);
+Route::get('/getdepartment', [DepartmentController::class, 'get']);
+Route::get('/department/edit/{id}', [DepartmentController::class, 'edit']);
+Route::post('/updatedepartment/{id}', [DepartmentController::class, 'update']);
+Route::delete('/deletedepartment/{id}', [DepartmentController::class, 'delete']);
