@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,13 @@ Route::get('/getdepartment', [DepartmentController::class, 'get']);
 Route::get('/department/edit/{id}', [DepartmentController::class, 'edit']);
 Route::post('/updatedepartment/{id}', [DepartmentController::class, 'update']);
 Route::delete('/deletedepartment/{id}', [DepartmentController::class, 'delete']);
+
+Route::get('/users', function () {
+    return view('adduser');
+});
+
+Route::post('/adduser', [UserController::class, 'create']);
+Route::get('/getuser', [UserController::class, 'get']);
+Route::get('/user/edit/{id}', [UserController::class, 'edit']);
+Route::post('/updateuser/{id}', [UserController::class, 'update']);
+Route::delete('/deleteuser/{id}', [UserController::class, 'delete']);

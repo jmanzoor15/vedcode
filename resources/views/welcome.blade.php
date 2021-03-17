@@ -35,7 +35,7 @@
           <a class="nav-link active" href="{{url('departments')}}">Departments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Users</a>
+          <a class="nav-link active" aria-current="page" href="{{url('users')}}">Users</a>
         </li>
        
       </ul>
